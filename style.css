@@ -59,7 +59,8 @@ font : .8em "typewriter", sans-serif;
 }
 
 input,
-textarea {
+textarea,
+.textarea-copy {
 font    : 1.4em/1.5em "handwriting", cursive, sans-serif;
 border  : none;
 padding : 0 10px;
@@ -74,7 +75,8 @@ background   : rgba(0,0,0,.1);
 border-radius: 5px;
 }
 
-textarea {
+textarea,
+.textarea-copy {
 display : block;
 
 padding : 10px;
@@ -107,4 +109,10 @@ button:focus {
 outline     : none;
 background  : #000;
 color       : #FFF;
+}
+
+.invisible{
+  background: transparent;
+  border: none !important;
+  font-size:0;
 }
