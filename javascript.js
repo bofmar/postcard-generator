@@ -1,5 +1,5 @@
 
-const submitButton = document.querySelector("[data-modal-target]");
+const submitButton = document.querySelector("#save-button");
 const textAreaDiv = document.querySelector("#message");
 const textArea = document.querySelector("#msg");
 const newElement = document.createElement("pre");
@@ -19,7 +19,6 @@ submitButton.addEventListener("click", (e)=>{
   const modal = document.querySelector("#modal");
   //make the popup and overlay appear
   openModal(modal);
-
   e.target.classList.remove("invisible"); //re-enable the button
   resetTextArea();
 });
@@ -63,5 +62,6 @@ function closeModal(modal){
   modal.classList.remove("active");
   overlay.classList.remove("active");
   
-  modal.removeChild("canvas");
+  //detach the previews canvas
+  modalBody.removeChild(document.querySelector("canvas"));
 }
