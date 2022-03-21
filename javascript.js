@@ -1,17 +1,25 @@
 
-const submitButton = document.querySelector("#save-button");
+const submitButton = document.querySelector("[data-modal-target]");
 const textAreaDiv = document.querySelector("#message");
 const textArea = document.querySelector("#msg");
 const newElement = document.createElement("pre");
+const closeModalButton = document.querySelector("[data-close-button]");
+const overlay = document.querySelector("#overlay");
+const modalBody = document.querySelector(".modal-body");
 
 submitButton.addEventListener("click", (e)=>{
+  let image;
   e.target.classList.add("invisible"); //make button invisible so that it will not be drawn on the canvas
-  replaceTextArea();
+  replaceTextArea(); //remove unwanted elements
   html2canvas(document.querySelector("form")).then(canvas => {
-    document.body.appendChild(canvas)
-    let image = canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
-    window.location.href = image;
-  });
+    modalBody.appendChild(canvas)
+    image = canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
+    // window.location.href = image;
+  }); //create the canvas
+  const modal = document.querySelector("#modal");
+  //make the popup and overlay appear
+  openModal(modal);
+
   e.target.classList.remove("invisible"); //re-enable the button
   resetTextArea();
 });
@@ -31,4 +39,29 @@ function replaceTextArea(){
 function resetTextArea(){
   textAreaDiv.removeChild(newElement);
   textAreaDiv.appendChild(textArea);
+}
+
+closeModalButton.addEventListener("click", (e) =>{
+  const modal = e.target.closest(".modal");
+  closeModal(modal);
+})
+
+//draw popup
+function openModal(modal){
+  if(modal === null){
+    return
+  }
+  modal.classList.add("active")
+  overlay.classList.add("active");
+}
+
+//close popup
+function closeModal(modal){
+  if(modal === null){
+    return
+  }
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+  
+  modal.removeChild("canvas");
 }
