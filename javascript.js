@@ -6,16 +6,16 @@ const newElement = document.createElement("pre");
 const closeModalButton = document.querySelector("[data-close-button]");
 const overlay = document.querySelector("#overlay");
 const modalBody = document.querySelector(".modal-body");
+const savePng = document.querySelector("#png")
+let image;
 
 submitButton.addEventListener("click", (e)=>{
-  let image;
   e.target.classList.add("invisible"); //make button invisible so that it will not be drawn on the canvas
   replaceTextArea(); //remove unwanted elements
   html2canvas(document.querySelector("form")).then(canvas => {
-    modalBody.appendChild(canvas)
-    image = canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
-    // window.location.href = image;
-  }); //create the canvas
+    modalBody.appendChild(canvas) //add canvas to popup for preview
+    image = canvas.toDataURL("image/png").replace("image/png","image/octet-stream"); //get the URL for the download
+  });
   const modal = document.querySelector("#modal");
   //make the popup and overlay appear
   openModal(modal);
@@ -60,8 +60,12 @@ function closeModal(modal){
     return
   }
   modal.classList.remove("active");
-  overlay.classList.remove("active");
-  
+  overlay.classList.remove("active");  
   //detach the previews canvas
   modalBody.removeChild(document.querySelector("canvas"));
 }
+
+//save the image
+savePng.addEventListener("click", ()=>{
+  window.location.href = image;
+})

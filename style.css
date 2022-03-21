@@ -178,6 +178,16 @@ color       : #FFF;
   border-top: 1px solid black;
 }
 
+#png{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
 #overlay{
   position: fixed;
   opacity: 0;
