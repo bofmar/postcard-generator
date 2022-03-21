@@ -5,12 +5,14 @@ const textArea = document.querySelector("#msg");
 const newElement = document.createElement("pre");
 
 submitButton.addEventListener("click", (e)=>{
-  e.target.classList.add("invisible");
+  e.target.classList.add("invisible"); //make button invisible so that it will not be drawn on the canvas
   replaceTextArea();
   html2canvas(document.querySelector("form")).then(canvas => {
     document.body.appendChild(canvas)
+    let image = canvas.toDataURL("image/png").replace("image/png","image/octet-stream");
+    window.location.href = image;
   });
-  e.target.classList.remove("invisible");
+  e.target.classList.remove("invisible"); //re-enable the button
   resetTextArea();
 });
 
