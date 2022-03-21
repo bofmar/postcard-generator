@@ -1,5 +1,5 @@
 
-const submitButton = document.querySelector("button");
+const submitButton = document.querySelector("#save-button");
 const textAreaDiv = document.querySelector("#message");
 const textArea = document.querySelector("#msg");
 const newElement = document.createElement("pre");

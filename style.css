@@ -90,7 +90,7 @@ border-right: 1px solid;
 overflow: auto;
 }
 
-button {
+#save-button {
 padding      : 5px;
 font         : bold .6em sans-serif;
 border       : 2px solid #333;
@@ -100,12 +100,12 @@ cursor       : pointer;
 transform    : rotate(-1.5deg);
 }
 
-button:after {
+#save-button:after {
 content      : " >>>";
 }
 
-button:hover,
-button:focus {
+#save-button:hover,
+#save-button:focus {
 outline     : none;
 background  : #000;
 color       : #FFF;
