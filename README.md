@@ -4,6 +4,8 @@ An online postcard creator that takes a postcard image and allows the user to wr
 
 Made using vanilla JavaScript, HTML5 and CSS3. Utilizes [html2canvas](https://github.com/niklasvh/html2canvas) for the creation of the downloadable image.
 
+Inspired by [MDN's Styling web forms tutotorial](https://developer.mozilla.org/en-US/docs/Learn/Forms/Styling_web_forms)
+
 ## Features
 
 * Supports png format
