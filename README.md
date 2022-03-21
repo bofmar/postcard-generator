@@ -12,4 +12,4 @@ Made using vanilla JavaScript, HTML5 and CSS3. Utilizes [html2canvas](https://gi
 
 ## Demo
 
-![demo]()
+![demo](https://github.com/bofmar/postcard-generator/blob/main/images/postcard-demo.gif)
